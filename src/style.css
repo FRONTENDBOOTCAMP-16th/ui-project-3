@@ -116,7 +116,23 @@
   --below---medium: 0px 8px 36px rgba(0, 0, 0, 0.2);
   --below---low: 0px 4px 24px rgba(0, 0, 0, 0.1);
 }
+
+header {
+  background: var(--black);
+  padding-inline: 64px;
+}
+
+.header_inner {
+  max-width: 1280px;
+  margin-inline: auto;
+}
+
+.main_inner {
+  max-width: 1280px;
+  margin-inline: auto;
+}
 .nav_box_detail {
+  max-width: 1280px;
   display: flex;
   flex-flow: nowrap row;
   justify-content: space-between;
@@ -125,7 +141,6 @@
   background: var(--black);
   width: 100%;
   block-size: 64px;
-  padding-inline: 24px;
   box-sizing: border-box;
 
   /* [모바일] 언어 박스 숨김 */
@@ -185,7 +200,7 @@
 
     .menu_list a {
       display: block;
-      padding: 15px;
+      column-gap: 4px;
       border-bottom: 1px solid #444;
       color: var(--white);
       text-decoration: none;
@@ -327,13 +342,16 @@
   }
 }
 
-.main_box_detail {
+main {
   background: url(./Image.png) no-repeat;
   background-size: cover;
   background-position: center;
+}
+
+.main_box_detail {
   width: 100%;
   height: 256px;
-
+  padding: 64px;
   display: flex;
   flex-flow: wrap column;
   justify-content: center;
@@ -343,14 +361,17 @@
     width: 100%;
 
     h2 {
-      margin-left: 24px;
-      margin-top: 40px;
+      font-size: var(--heading---x-l);
       font-weight: 700;
+      line-height: 140%;
     }
 
     p {
-      margin-left: 24px;
       margin-top: 28px;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 150%;
+      margin-block: 28px;
     }
 
     .main_link {
@@ -360,11 +381,14 @@
       background: var(--black);
       width: 150px;
       height: 56px;
-      margin-left: 24px;
-      margin-block: 28px 40px;
+
       color: var(--white);
       text-decoration: none;
-      font-weight: 700;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 150%;
+      padding-inline: 24px;
+      padding-block: 16px;
     }
   }
   /* 태블릿 */
@@ -378,12 +402,36 @@
     .main_wrapper {
       display: flex;
       align-items: center;
-      width: 900px;
-      height: 301px;
+
+      h2 {
+        font-size: var(--heading---x-x-l);
+      }
     }
   }
   /* 데스크탑 */
   @media (min-width: 1280px) {
+    .nav_box_detail {
+      max-width: 1280px;
+      svg {
+        margin-right: 25px;
+      }
+    }
+
+    .main_wrapper {
+      h2 {
+        font-size: var(--heading-----x-x-x-l);
+        font-weight: 700;
+        line-height: 140%;
+      }
+
+      .main_link {
+        font-size: 16px;
+
+        font-weight: 600;
+        line-height: 150%;
+      }
+    }
+
     .nav_box_detail .nav_menu {
       flex: 1;
       margin-left: 60px;
@@ -432,201 +480,6 @@
     .nav_box_detail .nav_menu .menu_list a:hover {
       background-color: transparent;
       color: #888;
-    }
-  }
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-footer {
-  background: var(--primary);
-  padding: 40px 24px 40px 24px;
-  color: var(--secondary);
-
-  display: flex;
-  flex-flow: nowrap column;
-  gap: 64px;
-
-  .customerCenter {
-    display: flex;
-    flex-flow: nowrap column;
-    gap: 28px;
-
-    font-size: var(--label---medium);
-    font-weight: 600;
-    line-height: 150%;
-
-    .footerLogo {
-      width: 39px;
-      height: 39px;
-    }
-  }
-
-  .footerNav {
-    display: flex;
-    flex-flow: nowrap row;
-    justify-content: space-between;
-
-    font-weight: 600;
-    line-height: 150%;
-
-    .navSection {
-      .navSection__heading {
-        margin: 0;
-        font-size: var(--label---large);
-        margin-block-end: 20px;
-      }
-      .navSection__item {
-        font-size: var(--label---medium);
-        margin-block-end: 16px;
-      }
-    }
-  }
-
-  .snsDownload {
-    display: flex;
-    flex-flow: nowrap column;
-    gap: 36px;
-
-    .sns {
-      display: flex;
-      flex-flow: nowrap row;
-      gap: 94px;
-      .sns__item {
-        width: 16px;
-        height: 16px;
-      }
-    }
-    .langLocation {
-      display: flex;
-      flex-flow: nowrap row;
-      gap: 60px;
-
-      .language {
-        a {
-          display: flex;
-          line-height: 24px;
-          gap: 4px;
-
-          span {
-            transform: translateY(2px);
-          }
-
-          img {
-            width: 24px;
-            height: 24px;
-          }
-        }
-      }
-
-      .location {
-        a {
-          display: flex;
-          flex-flow: nowrap row;
-          line-height: 24px;
-          gap: 4px;
-
-          span {
-            transform: translateY(2px);
-          }
-        }
-      }
-    }
-    .download {
-      display: flex;
-      flex-flow: nowrap row;
-      gap: 16px;
-      a {
-        width: 135px;
-        height: 40px;
-      }
-    }
-  }
-
-  .copyright {
-    display: flex;
-    flex-flow: nowrap column;
-    gap: 36px;
-
-    .copyInfo {
-      display: flex;
-      flex-flow: nowrap row;
-      gap: 36px;
-
-      font-size: var(--paragraph---small);
-      font-weight: 400;
-      line-height: 160%;
-      color: var(--contents--content-tertiary);
-
-      p:first-child {
-        flex-shrink: 0;
-      }
-      p:nth-child(2) {
-        max-width: 716px;
-        width: 100%;
-      }
-    }
-
-    .term {
-      display: flex;
-      flex-flow: nowrap row;
-      gap: 31px;
-
-      font-size: var(--paragraph---small);
-      font-weight: 400;
-      line-height: 160%;
-      color: var(--contents--content-tertiary);
-    }
-  }
-}
-
-@media (768px <= width < 1280px) {
-  footer {
-    padding: 56px 32px 56px 32px;
-
-    .footerNav {
-      max-width: 700px;
-      width: 100%;
-    }
-    .snsDownload {
-      flex-flow: wrap row;
-      justify-content: space-between;
-      .download {
-        flex-basis: 100%;
-      }
-    }
-  }
-}
-@media (width >= 1280px) {
-  footer {
-    padding: 64px 64px 64px 64px;
-
-    .footerNav {
-      max-width: 700px;
-    }
-    .snsDownload {
-      flex-flow: nowrap row;
-      justify-content: space-between;
-    }
-    .copyright {
-      flex-flow: nowrap row;
-      justify-content: space-between;
-      .copyInfo {
-        p:nth-child(2) {
-          max-width: 427px;
-          width: 100%;
-        }
-      }
     }
   }
 }
