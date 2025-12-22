@@ -103,6 +103,7 @@
   --below---medium: 0px 8px 36px rgba(0, 0, 0, 0.2);
   --below---low: 0px 4px 24px rgba(0, 0, 0, 0.1);
   --spacing--medium: 2rem;
+  --spacing--large: 2.5rem;
 }
 body {
   background-color: #f5f5f5;
@@ -123,12 +124,14 @@ body {
   }
 
   .download_component {
+    height: 136px;
     display: flex;
     flex-flow: nowrap row;
     align-items: center;
-    gap: var(--spacing--medium);
-    padding: var(--spacing--medium);
+    gap: 10px;
+    padding: 15px;
     background: white;
+    min-width: 0;
 
     svg {
       flex-shrink: 0;
@@ -139,19 +142,22 @@ body {
       font-family: pretendard;
       font-size: var(--paragraph---large);
       white-space: nowrap;
-      flex-grow: 1;
+      flex-shrink: 1;
+      min-width: 0;
       order: 2;
     }
 
     a {
+      flex-shrink: 0;
+      margin-left: auto;
       order: 3;
     }
   }
 }
 
-/* 반응형 웹 레이아웃 */
+/* download 부분 반응형 웹 레이아웃 */
 
-@media (width>= 599px) {
+@media (width>= 768px) {
   .app_download_box {
     padding: 56px 32px;
     display: flex;
@@ -163,17 +169,24 @@ body {
 
     .download_component {
       height: 198px;
+      padding: var(--spacing--medium);
       display: flex;
       gap: 36px;
 
       figcaption {
-        flex: 1;
+        flex-grow: 0;
+      }
+
+      a {
+        figcaption {
+          flex: 0 0 auto;
+        }
       }
     }
   }
 }
 
-@media (width>= 1280px) {
+@media (width>= 1180px) {
   .app_download_box {
     width: 1152px;
     height: auto;
@@ -187,8 +200,57 @@ body {
 
     .download_component {
       height: 192px;
+      padding: var(--spacing--large);
       display: flex;
       flex-grow: 1;
     }
+  }
+}
+
+/* about 부분 컴포넌트 스타일링 */
+.app_about_box {
+  background-color: #ffffff;
+  margin: auto;
+  padding: 40px 24px;
+  display: flex;
+  flex-flow: nowrap column;
+  gap: 36px;
+
+  .about_company,
+  .about_news {
+    display: flex;
+    flex-flow: nowrap column;
+    gap: 12px;
+    margin-right: auto;
+  }
+  h3 {
+    font-weight: 600;
+  }
+
+  .about_details {
+    color: inherit;
+    text-decoration: none;
+    text-decoration: underline var(--black);
+    text-underline-offset: 8px;
+  }
+}
+
+/* about 부분 반응형 웹 레이아웃 */
+
+@media (width >= 768px) {
+  .app_about_box {
+    padding: 56px 32px;
+    display: flex;
+    flex-flow: nowrap row;
+    column-gap: 36px;
+  }
+}
+
+@media (width >= 1180px) {
+  .app_about_box {
+    padding: 64px;
+    display: flex;
+    flex-flow: nowrap row;
+    column-gap: 36px;
   }
 }
