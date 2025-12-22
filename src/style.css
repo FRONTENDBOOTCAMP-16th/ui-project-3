@@ -364,6 +364,7 @@ footer {
     flex-flow: nowrap row;
     gap: 36px;
     color: var(--contents--content-tertiary);
+    align-items: center;
 
     font-size: var(--paragraph---small);
     font-weight: 400;
@@ -428,6 +429,7 @@ footer {
     .copyright {
       flex-flow: nowrap row;
       justify-content: space-between;
+      align-items: center;
     }
   }
   /* 내비게이션 최대 너비 제한 */
