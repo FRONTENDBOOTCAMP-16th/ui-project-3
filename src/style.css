@@ -1,1 +1,257 @@
-/* CSS 스타일을 작성해 주세요. */ 
+:root {
+  --black: rgba(0, 0, 0, 1);
+  --white: rgba(255, 255, 255, 1);
+  --primary: rgba(18, 18, 18, 1);
+  --secondary: rgba(255, 255, 255, 1);
+  --tertiary: rgba(245, 245, 245, 1);
+  --accent: rgba(39, 110, 241, 1);
+  --negative: rgba(225, 25, 0, 1);
+  --warning: rgba(255, 192, 67, 1);
+  --positive: rgba(4, 136, 72, 1);
+  --positive-transparent: rgba(4, 136, 72, 0.10000000149011612);
+  --negative-tranparent: rgba(225, 25, 0, 0.10000000149011612);
+  --blue--100: rgba(204, 227, 255, 1);
+  --blue--200: rgba(153, 200, 255, 1);
+  --blue--300: rgba(102, 172, 255, 1);
+  --blue--400: rgba(51, 145, 255, 1);
+  --blue--500: rgba(0, 117, 255, 1);
+  --blue--600: rgba(0, 94, 204, 1);
+  --blue--700: rgba(0, 70, 153, 1);
+  --blue--800: rgba(0, 47, 102, 1);
+  --blue--900: rgba(0, 23, 51, 1);
+  --red--100: rgba(255, 204, 204, 1);
+  --red--200: rgba(255, 153, 153, 1);
+  --red--300: rgba(255, 102, 102, 1);
+  --red--400: rgba(255, 51, 51, 1);
+  --red--500: rgba(255, 0, 0, 1);
+  --red--600: rgba(204, 0, 0, 1);
+  --red--700: rgba(153, 0, 0, 1);
+  --red--800: rgba(102, 0, 0, 1);
+  --red--900: rgba(51, 0, 0, 1);
+  --yellow--100: rgba(255, 244, 204, 1);
+  --yellow--200: rgba(255, 233, 153, 1);
+  --yellow--300: rgba(255, 221, 102, 1);
+  --yellow--400: rgba(255, 210, 51, 1);
+  --yellow--500: rgba(255, 199, 0, 1);
+  --yellow--600: rgba(204, 159, 0, 1);
+  --yellow--700: rgba(153, 119, 0, 1);
+  --yellow--800: rgba(102, 80, 0, 1);
+  --yellow--900: rgba(51, 40, 0, 1);
+  --green--100: rgba(215, 248, 204, 1);
+  --green--200: rgba(176, 241, 153, 1);
+  --green--300: rgba(136, 235, 102, 1);
+  --green--400: rgba(97, 228, 51, 1);
+  --green--500: rgba(57, 221, 0, 1);
+  --green--600: rgba(46, 177, 0, 1);
+  --green--700: rgba(34, 133, 0, 1);
+  --green--800: rgba(23, 88, 0, 1);
+  --green--900: rgba(11, 44, 0, 1);
+  --contents--content-primary: rgba(0, 0, 0, 1);
+  --contents--content-secondary: rgba(107, 107, 107, 1);
+  --contents--content-tertiary: rgba(166, 166, 166, 1);
+  --gray--100: rgba(225, 225, 225, 1);
+  --gray--200: rgba(196, 196, 196, 1);
+  --gray--300: rgba(166, 166, 166, 1);
+  --gray--400: rgba(137, 137, 137, 1);
+  --gray--500: rgba(107, 107, 107, 1);
+  --gray--600: rgba(86, 86, 86, 1);
+  --gray--700: rgba(64, 64, 64, 1);
+  --gray--800: rgba(43, 43, 43, 1);
+  --gray--900: rgba(21, 21, 21, 1);
+  --border----border-transparent: rgba(137, 137, 137, 0.30000001192092896);
+  --border--border-opaque: rgba(137, 137, 137, 1);
+  --info--accent: rgba(0, 117, 255, 1);
+  --info--negative: rgba(255, 0, 0, 1);
+  --info--warning: rgba(255, 199, 0, 1);
+  --info--positive: rgba(57, 221, 0, 1);
+  --info--positive-transparent: rgba(57, 221, 0, 0.10000000149011612);
+  --info--negative-transparent: rgba(255, 0, 0, 0.10000000149011612);
+  --pink--100: rgba(248, 204, 249, 1);
+  --pink--200: rgba(240, 153, 242, 1);
+  --pink--300: rgba(233, 102, 236, 1);
+  --pink--400: rgba(226, 51, 229, 1);
+  --pink--500: rgba(219, 0, 223, 1);
+  --pink--600: rgba(175, 0, 178, 1);
+  --pink--700: rgba(131, 0, 134, 1);
+  --pink--800: rgba(87, 0, 89, 1);
+  --pink--900: rgba(44, 0, 45, 1);
+  --oragne--orange: rgba(252, 147, 0, 1);
+
+  /* Text-size styles */
+  --heading-----x-x-x-l: 3.1573rem;
+  --heading---x-x-l: 2.3686rem;
+  --heading---x-l: 1.7769rem;
+  --heading---large: 1.333rem;
+  --heading---medium: 1rem;
+  --label---x-x-l: 2.3686rem;
+  --label---x-l: 1.7769rem;
+  --label---large: 1.333rem;
+  --label---medium: 1rem;
+  --label---small: 0.7502rem;
+  --paragraph---x-l: 1.7769rem;
+  --paragraph---large: 1.333rem;
+  --paragraph---medium: 1rem;
+  --paragraph---small: 0.7502rem;
+
+  /* Effect styles */
+  --above---high: 0px -16px 48px rgba(0, 0, 0, 0.3);
+  --above---medium: 0px -8px 36px rgba(0, 0, 0, 0.2);
+  --above---low: 0px -4px 24px rgba(0, 0, 0, 0.1);
+  --below---high: 0px 16px 48px rgba(0, 0, 0, 0.3);
+  --below---medium: 0px 8px 36px rgba(0, 0, 0, 0.2);
+  --below---low: 0px 4px 24px rgba(0, 0, 0, 0.1);
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0); /* 예전 브라우저 대응 */
+  clip-path: inset(50%); /* 최신 브라우저 대응 */
+  border: 0;
+  white-space: nowrap;
+}
+.apply {
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem 1.5rem;
+  color: var(--contents--content-primary);
+
+  .apply__title {
+    font-size: var(--heading---x-x-l);
+  }
+  .apply__subtitle {
+    font-size: var(--label---large);
+    margin-block: 2.25rem;
+  }
+  .apply__link {
+    font-size: var(--label---medium);
+  }
+
+  .apply__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .apply__policy-text {
+    font-size: var(--paragraph---small);
+    margin-block: 2.25rem;
+    line-height: 1.5;
+  }
+  .apply__link,
+  .apply__footer-link {
+    text-decoration: none;
+    display: inline-block;
+    color: var(--contents--content-primary);
+    border-bottom: 1px solid var(--contents--content-primary);
+    padding: 0.25rem;
+  }
+}
+.apply__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .apply__error-message {
+    display: none;
+    color: var(--negative);
+    font-size: var(--paragraph---small);
+  }
+
+  /* 비밀번호가 입력 중인데(placeholder가 숨겨짐) 형식이 틀렸다면(invalid) */
+  .apply__input[type='password']:not(:placeholder-shown):invalid + .apply__error-message {
+    display: block;
+  }
+
+  .apply__input {
+    height: 3.125rem;
+    padding-inline: 0.75rem;
+    font-size: var(--label---medium);
+    border: 1px solid var(--border----border-transparent);
+    background: var(--tertiary);
+    color: var(--contents--content-primary);
+
+    &[type='email']:valid {
+      border: 2px solid var(--positive);
+      background: var(--positive-transparent);
+    }
+
+    &[type='password']:user-invalid,
+    &[type='email']:user-invalid {
+      border: 2px solid var(--negative);
+      background: var(--negative-tranparent);
+    }
+
+    &::placeholder {
+      color: var(--contents--content-secondary);
+    }
+  }
+
+  .apply__form-name-group {
+    display: flex;
+    gap: 1rem;
+
+    .apply__input-first-name,
+    .apply__input-last-name {
+      flex: 1 1 0;
+      min-width: 0;
+    }
+  }
+  .apply__select:valid {
+    color: var(--contents--content-primary);
+    font-weight: 700;
+  }
+}
+.apply__footer {
+  display: flex;
+  font-size: var(--label---medium);
+
+  .apply__footer-button {
+    padding: 1rem 1.5rem;
+    font-size: var(--label---medium);
+    background: var(--black);
+    color: var(--white);
+    margin-inline-end: 2.25rem;
+
+    &:focus-visible {
+      outline: 2px solid var(--blue--300);
+      outline-offset: 2px;
+    }
+  }
+
+  .apply__footer-login {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    .apply__footer-text {
+      font-size: var(--paragraph---small);
+      color: var(--contents--content-tertiary);
+    }
+  }
+}
+@media (768px< width <= 1279px) {
+  .apply {
+    padding: 2rem 3.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .apply {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem;
+    gap: 17.75rem;
+
+    .apply__title {
+      font-size: var(--heading-----x-x-x-l);
+      flex: 1 1 0;
+    }
+    .apply__form-wrapper {
+      flex: 1;
+    }
+  }
+}
