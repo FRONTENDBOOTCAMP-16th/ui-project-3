@@ -109,43 +109,43 @@
   .qna-box__inner{
     max-width: 1280px;
     margin-inline: auto;
-    padding: 4rem;
+    padding: 2.25rem 1.5rem;
     color: var(--contents--content-primary);
   }
 
   /* 헤딩 제목 */
   .heading-text{
     margin-block-end: 2.25rem;
-    font-size: var(--heading---x-x-l);
+    font-size: var(--heading---large);
     font-weight: 800;
   }
 
   /* tablet */
   @media (width <= 1280px) and (width >= 768px){
     .qna-box__inner{
-    padding: 3.5rem 2rem;
-
+      padding: 3.5rem 2rem;
     }
     .heading-text{
       font-size: var(--heading---x-l);
     }
   }
 
-  /* mobile */
-  @media (width < 768px) {
+  /* PC */
+  @media (width > 1280px) {
     .qna-box__inner{
-    padding: 2.25rem 1.5rem;
-
+      padding: 4rem;
     }
     .heading-text{
-      font-size: var(--heading---large);
+      font-size: var(--heading---x-x-l);
     }
   }
 }
 
+
+/* 질문 탭 메뉴 */
 .qna-box__item-box{
   border-bottom: 1px solid var(--border----border-transparent);
-  line-height: 160%;
+  line-height: 150%;
 
   /* 공통 서식 */
   .qna-box__item-title,
@@ -217,8 +217,7 @@
     text-decoration: none;
   }
 
-  /* 태블릿 - 모바일 공통 */
-  @media (width <= 1240px){
-    line-height: 150%;
+  @media (width >= 1280px){
+    line-height: 160%;
   }
 }
