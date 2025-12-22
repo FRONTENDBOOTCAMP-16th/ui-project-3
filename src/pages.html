@@ -8,13 +8,14 @@
     <link rel="preload" as="font" href="/font/woff2/PretendardVariable.woff2" crossorigin="anonymous" />
     <link rel="stylesheet" as="style" href="/font/pretendardvariable.css" />
     <link rel="stylesheet" as="style" href="./style.css" />
+    <link rel="stylesheet" as="style" href="./modern-reset.css" />
     <script type="module" src="/src/main.js"></script>
   </head>
   <body>
     <footer>
       <div class="customerCenter">
-        <img src="/logo.svg" alt="" />
-        <a href="#">고객지원 센터로 가기</a>
+        <img class="footerLogo" src="/logo.svg" alt="" />
+        <a class="linkCustomercenter" href="#">고객지원 센터로 가기</a>
       </div>
       <div class="footerNav">
         <div class="navSection">
@@ -29,8 +30,8 @@
         <div class="navSection">
           <h4 class="navSection__heading">상품</h4>
           <ul>
-            <li class="navSection__item"><a href="#">운행</a></li>
             <li class="navSection__item"><a href="#">차량 서비스</a></li>
+            <li class="navSection__item"><a href="#">운행</a></li>
           </ul>
         </div>
         <div class="navSection">
@@ -54,31 +55,26 @@
         </div>
         <div class="langLocation">
           <div class="language">
-            <label for="language" class="sr-only"></label>
-            <select name="language" id="language">
-              <option value="korean">한국어</option>
-              <option value="english">영어</option>
-              <option value="chinese">중국어</option>
-            </select>
+            <a href="#"><img src="/public/Icon/World.png" alt="언어 선택" /><span>한국어</span></a>
           </div>
           <div class="location">
-            <p>
-              <a href="/"><img src="/Icon/Pin.svg" alt="" />서울</a>
-            </p>
+            <a href="#"><img src="/Icon/Pin.svg" alt="위치 선택" /><span>서울</span></a>
           </div>
         </div>
         <div class="download">
-          <a href="/"><img src="/Buttons/AppName=googlePlay.svg" alt="구글 플레이" /></a>
-          <a href="/"><img src="/Buttons/AppName=appStore.svg" alt="앱스토어" /></a>
+          <a href="#"><img src="/Buttons/AppName=googlePlay.svg" alt="구글 플레이" /></a>
+          <a href="#"><img src="/Buttons/AppName=appStore.svg" alt="앱스토어" /></a>
         </div>
       </div>
-      <div class="copyInfo">
-        <p>© 2022 UT LLC</p>
-        <p>법인명: UT LLC | 사업자 등록 번호: 166-86-02049 | 회사 대표번호: 080-800-5555 | 대표: White Thomas Darcy | 회사 주소: 서울특별시 중구 삼일대로 343 | 통신판매번호: 2021-서울중구-0976</p>
-      </div>
-      <div class="term">
-        <a href="#">개인정보 보호</a>
-        <a href="#">약관</a>
+      <div class="copyright">
+        <div class="copyInfo">
+          <p>© 2022 UT LLC</p>
+          <p>법인명: UT LLC | 사업자 등록 번호: 166-86-02049 | 회사 대표번호: 080-800-5555 | 대표: White Thomas Darcy | 회사 주소: 서울특별시 중구 삼일대로 343 | 통신판매번호: 2021-서울중구-0976</p>
+        </div>
+        <div class="term">
+          <a href="#">개인정보 보호</a>
+          <a href="#">약관</a>
+        </div>
       </div>
     </footer>
   </body>
