@@ -112,6 +112,7 @@ body {
 /* download 부분 컴포넌트 스타일링 */
 
 .app_download_box {
+  max-width: 1280px;
   padding: 40px 24px;
   display: flex;
   flex-flow: nowrap column;
@@ -147,7 +148,7 @@ body {
       order: 2;
     }
 
-    a {
+    .download_app_link {
       flex-shrink: 0;
       margin-left: auto;
       order: 3;
@@ -159,6 +160,7 @@ body {
 
 @media (width>= 768px) {
   .app_download_box {
+    max-width: 1280px;
     padding: 56px 32px;
     display: flex;
     flex-flow: nowrap column;
@@ -177,7 +179,7 @@ body {
         flex-grow: 0;
       }
 
-      a {
+      .download_app_link {
         figcaption {
           flex: 0 0 auto;
         }
