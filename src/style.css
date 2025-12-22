@@ -93,6 +93,20 @@
   --paragraph---large: 1.333rem;
   --paragraph---medium: 1rem;
   --paragraph---small: 0.7502rem;
+  --heading-----x-x-x-l: 50.516998291015625px;
+  --heading---x-x-l: 37.89699935913086px;
+  --heading---x-l: 28.43000030517578px;
+  --heading---large: 21.327999114990234px;
+  --heading---medium: 16px;
+  --label---x-x-l: 37.89699935913086px;
+  --label---x-l: 28.43000030517578px;
+  --label---large: 21.327999114990234px;
+  --label---medium: 16px;
+  --label---small: 12.003000259399414px;
+  --paragraph---x-l: 28.43000030517578px;
+  --paragraph---large: 21.327999114990234px;
+  --paragraph---medium: 16px;
+  --paragraph---small: 12.003000259399414px;
 
   /* Effect styles */
   --above---high: 0px -16px 48px rgba(0, 0, 0, 0.3);
@@ -102,7 +116,6 @@
   --below---medium: 0px 8px 36px rgba(0, 0, 0, 0.2);
   --below---low: 0px 4px 24px rgba(0, 0, 0, 0.1);
 }
-
 .nav_box_detail {
   display: flex;
   flex-flow: nowrap row;
@@ -110,14 +123,17 @@
   position: relative;
   align-items: center;
   background: var(--black);
-  width: calc(100% - 48px);
+  width: 100%;
   block-size: 64px;
   padding-inline: 24px;
+  box-sizing: border-box;
 
+  /* [모바일] 언어 박스 숨김 */
   .lang-box {
     display: none;
   }
 
+  /* [모바일] 네비 메뉴 기본 설정 */
   .nav_menu {
     display: flex;
     justify-content: center;
@@ -151,12 +167,10 @@
     }
 
     .menu_list {
-      display: none;
-
+      display: none; /* 기본 숨김 */
       position: absolute;
       top: 100%;
       right: 0;
-
       width: 160px;
       background: #333;
       color: white;
@@ -187,12 +201,17 @@
       border-bottom: none;
     }
 
+    /* 모바일에서 햄버거 클릭 시 메뉴 보이기 */
     .toggle_chk:checked ~ .menu_list {
       display: flex;
     }
   }
 
+  /* =========================================
+     PC 화면 (1280px 이상)
+     ========================================= */
   @media (min-width: 1280px) {
+    /* 1. 언어 박스 (KO-KR) 보이기 및 설정 */
     .lang-box {
       color: var(--white);
       display: flex;
@@ -200,20 +219,37 @@
       align-items: center;
       position: relative;
 
+      /* ★ 중요: 가입하기 버튼 왼쪽으로 배치 */
+      order: -1;
+      margin-right: 20px; /* 버튼과 간격 */
+
       .lang_chk {
         display: none;
       }
+
+      .lang_btn {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 14px;
+      }
+
+      /* 드롭다운 리스트 */
       .lang_list {
         display: none;
         position: absolute;
         top: 30px;
         left: 50%;
-        background: #222; /* 배경색 */
+        transform: translateX(-50%);
+        background: #222;
         border: 1px solid #444;
         border-radius: 8px;
         padding: 8px 0;
         width: 120px;
         list-style: none;
+        z-index: 200;
       }
 
       .lang_list li a {
@@ -230,52 +266,63 @@
         color: white;
       }
 
-      /* ★ 핵심 기능: 체크되면 리스트 보이기 ★ */
       .lang_chk:checked ~ .lang_list {
         display: block;
       }
     }
-  }
 
-  .nav_menu {
-    flex: 1;
-    margin-left: 60px;
-    justify-content: flex-start;
-    align-items: center;
+    /* 2. 네비 메뉴 PC 설정 (정렬 핵심 부분) */
+    .nav_menu {
+      flex: 1;
+      margin-left: 60px;
 
-    .hamburger_btn,
-    .toggle_chk {
-      display: none;
-    }
+      /* ★ 중요: 양쪽 끝 정렬(space-between)을 끄고 왼쪽 정렬로 변경 */
+      justify-content: flex-start;
+      align-items: center;
 
-    .menu_list {
-      display: flex;
-      position: static;
-      flex-direction: row;
+      .hamburger_btn,
+      .toggle_chk {
+        display: none;
+      }
 
-      width: auto;
-      height: auto;
-      background: transparent;
-      box-shadow: none;
-      padding: 0;
-      margin-right: auto; /* ★ 핵심: 오른쪽 여백을 다 밀어서 가입하기 버튼을 끝으로 보냄 */
-      gap: 30px; /* 메뉴 사이 간격 */
+      /* 메뉴 리스트 가로 배치 */
+      .menu_list {
+        display: flex;
+        position: static;
+        flex-direction: row;
+        gap: 40px;
 
-      /* 순서 바꾸기 (가입하기 버튼보다 앞으로) */
-      order: -1;
-    }
+        width: auto;
+        height: auto;
+        background: transparent;
+        box-shadow: none;
+        padding: 0;
+        margin: 0;
 
-    /* 3. 메뉴 링크 스타일 다듬기 */
-    .menu_list a {
-      padding: 0;
-      border: none;
-      font-size: 16px;
-      font-weight: 700;
-    }
+        /* ★ 핵심: 오른쪽 여백을 다 밀어서 나머지 요소(언어, 버튼)를 오른쪽 끝으로 보냄 */
+        margin-right: auto;
 
-    .menu_list a:hover {
-      background-color: transparent;
-      color: var(--white);
+        /* 순서: 제일 왼쪽 */
+        order: -2;
+      }
+
+      .menu_list a {
+        padding: 0;
+        border: none;
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      .menu_list a:hover {
+        background-color: transparent;
+        color: #888;
+      }
+
+      /* 불필요한 체크박스 로직 무력화 */
+      .toggle_chk:checked ~ .menu_list {
+        display: flex;
+        /* 나머지 스타일은 위에서 이미 static으로 잡혀있음 */
+      }
     }
   }
 }
@@ -385,6 +432,201 @@
     .nav_box_detail .nav_menu .menu_list a:hover {
       background-color: transparent;
       color: #888;
+    }
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer {
+  background: var(--primary);
+  padding: 40px 24px 40px 24px;
+  color: var(--secondary);
+
+  display: flex;
+  flex-flow: nowrap column;
+  gap: 64px;
+
+  .customerCenter {
+    display: flex;
+    flex-flow: nowrap column;
+    gap: 28px;
+
+    font-size: var(--label---medium);
+    font-weight: 600;
+    line-height: 150%;
+
+    .footerLogo {
+      width: 39px;
+      height: 39px;
+    }
+  }
+
+  .footerNav {
+    display: flex;
+    flex-flow: nowrap row;
+    justify-content: space-between;
+
+    font-weight: 600;
+    line-height: 150%;
+
+    .navSection {
+      .navSection__heading {
+        margin: 0;
+        font-size: var(--label---large);
+        margin-block-end: 20px;
+      }
+      .navSection__item {
+        font-size: var(--label---medium);
+        margin-block-end: 16px;
+      }
+    }
+  }
+
+  .snsDownload {
+    display: flex;
+    flex-flow: nowrap column;
+    gap: 36px;
+
+    .sns {
+      display: flex;
+      flex-flow: nowrap row;
+      gap: 94px;
+      .sns__item {
+        width: 16px;
+        height: 16px;
+      }
+    }
+    .langLocation {
+      display: flex;
+      flex-flow: nowrap row;
+      gap: 60px;
+
+      .language {
+        a {
+          display: flex;
+          line-height: 24px;
+          gap: 4px;
+
+          span {
+            transform: translateY(2px);
+          }
+
+          img {
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+
+      .location {
+        a {
+          display: flex;
+          flex-flow: nowrap row;
+          line-height: 24px;
+          gap: 4px;
+
+          span {
+            transform: translateY(2px);
+          }
+        }
+      }
+    }
+    .download {
+      display: flex;
+      flex-flow: nowrap row;
+      gap: 16px;
+      a {
+        width: 135px;
+        height: 40px;
+      }
+    }
+  }
+
+  .copyright {
+    display: flex;
+    flex-flow: nowrap column;
+    gap: 36px;
+
+    .copyInfo {
+      display: flex;
+      flex-flow: nowrap row;
+      gap: 36px;
+
+      font-size: var(--paragraph---small);
+      font-weight: 400;
+      line-height: 160%;
+      color: var(--contents--content-tertiary);
+
+      p:first-child {
+        flex-shrink: 0;
+      }
+      p:nth-child(2) {
+        max-width: 716px;
+        width: 100%;
+      }
+    }
+
+    .term {
+      display: flex;
+      flex-flow: nowrap row;
+      gap: 31px;
+
+      font-size: var(--paragraph---small);
+      font-weight: 400;
+      line-height: 160%;
+      color: var(--contents--content-tertiary);
+    }
+  }
+}
+
+@media (768px <= width < 1280px) {
+  footer {
+    padding: 56px 32px 56px 32px;
+
+    .footerNav {
+      max-width: 700px;
+      width: 100%;
+    }
+    .snsDownload {
+      flex-flow: wrap row;
+      justify-content: space-between;
+      .download {
+        flex-basis: 100%;
+      }
+    }
+  }
+}
+@media (width >= 1280px) {
+  footer {
+    padding: 64px 64px 64px 64px;
+
+    .footerNav {
+      max-width: 700px;
+    }
+    .snsDownload {
+      flex-flow: nowrap row;
+      justify-content: space-between;
+    }
+    .copyright {
+      flex-flow: nowrap row;
+      justify-content: space-between;
+      .copyInfo {
+        p:nth-child(2) {
+          max-width: 427px;
+          width: 100%;
+        }
+      }
     }
   }
 }
