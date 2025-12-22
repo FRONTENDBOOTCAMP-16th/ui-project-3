@@ -104,6 +104,320 @@
   --spacing--large: 2.5rem;
 }
 
+.qna-box__container {
+  background: var(--white);
+
+  /* 가운데 박스 */
+  .qna-box__inner {
+    max-width: 1280px;
+    margin-inline: auto;
+    padding: 2.25rem 1.5rem;
+    color: var(--contents--content-primary);
+  }
+
+  /* 헤딩 제목 */
+  .heading-text {
+    margin-block-end: 2.25rem;
+    font-size: var(--heading---large);
+    font-weight: 800;
+  }
+
+  /* tablet */
+  @media (width <= 1280px) and (width >= 768px) {
+    .qna-box__inner {
+      padding: 3.5rem 2rem;
+    }
+    .heading-text {
+      font-size: var(--heading---x-l);
+    }
+  }
+
+  /* PC */
+  @media (width > 1280px) {
+    .qna-box__inner {
+      padding: 4rem;
+    }
+    .heading-text {
+      font-size: var(--heading---x-x-l);
+    }
+  }
+}
+
+/* 질문 탭 메뉴 */
+.qna-box__item-box {
+  border-bottom: 1px solid var(--border----border-transparent);
+  line-height: 150%;
+
+  /* 공통 서식 */
+  .qna-box__item-title,
+  .qna-box__item-desc {
+    font-size: 1rem;
+  }
+
+  /* 질문 제목 */
+  .qna-box__item-title {
+    display: flex;
+    column-gap: 2.25rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    font-weight: 600;
+    list-style: none;
+    cursor: pointer;
+  }
+  .qna-box__item-title::-webkit-details-marker {
+    display: none;
+  }
+
+  /* 질문 제목 포커스 */
+  .qna-box__item-title:focus-visible {
+    outline: 2px solid var(--contents--content-primary);
+    outline-offset: -2px;
+    background-color: var(--tertiary);
+  }
+
+  /* 펼치기 아이콘 */
+  .qna-box__toggle-icon {
+    flex: 0 0 auto;
+  }
+  .icon-minus,
+  .icon-plus {
+    display: none;
+  }
+
+  /* 펼치기 아이콘 펼침 */
+  &[open] .icon-minus {
+    display: block;
+  }
+  &:not([open]) .icon-plus {
+    display: block;
+  }
+
+  /* 질문상자 내용 */
+  .qna-box__item-desc {
+    display: flex;
+    flex-flow: nowrap column;
+    row-gap: 1.5rem;
+    padding: 1.5rem;
+    color: var(--contents--content-primary);
+    font-size: 1rem;
+    font-weight: 400;
+    word-break: keep-all;
+  }
+
+  .qna-box__item-desc ol {
+    padding-inline-start: 1.25rem;
+    list-style: decimal;
+  }
+
+  .qna-box__item-desc a {
+    display: block;
+    padding: 0.25rem;
+    border-bottom: 1px solid var(--contents--content-tertiary);
+    color: inherit;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  @media (width >= 1280px) {
+    line-height: 160%;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+footer {
+  display: flex;
+  flex-flow: nowrap column;
+  gap: 64px;
+  padding: 40px 24px 40px 24px;
+  background: var(--primary);
+  color: var(--secondary);
+
+  .customerCenter {
+    display: flex;
+    flex-flow: nowrap column;
+    gap: 28px;
+
+    font-size: var(--label---medium);
+    font-weight: 600;
+    line-height: 150%;
+
+    .footerLogo {
+      width: 39px;
+      height: 39px;
+    }
+  }
+
+  .footerNav {
+    display: flex;
+    flex-flow: nowrap row;
+    justify-content: space-between;
+
+    font-weight: 600;
+    line-height: 150%;
+
+    .navSection {
+      .navSection__heading {
+        margin: 0;
+        margin-block-end: 20px;
+        font-size: var(--label---large);
+      }
+      .navSection__item {
+        margin-block-end: 16px;
+        font-size: var(--label---medium);
+      }
+    }
+  }
+
+  .snsDownload {
+    display: flex;
+    flex-flow: nowrap column;
+    gap: 36px;
+
+    .sns {
+      display: flex;
+      flex-flow: nowrap row;
+      gap: 94px;
+      .sns__item {
+        width: 16px;
+        height: 16px;
+      }
+    }
+    .langLocation {
+      display: flex;
+      flex-flow: nowrap row;
+      gap: 60px;
+
+      .language {
+        a {
+          display: flex;
+          gap: 4px;
+          line-height: 24px;
+
+          span {
+            transform: translateY(2px);
+          }
+
+          img {
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+
+      .location {
+        a {
+          display: flex;
+          flex-flow: nowrap row;
+          gap: 4px;
+          line-height: 24px;
+
+          span {
+            transform: translateY(2px);
+          }
+        }
+      }
+    }
+    .download {
+      display: flex;
+      flex-flow: nowrap row;
+      gap: 16px;
+      a {
+        width: 135px;
+        height: 40px;
+      }
+    }
+  }
+
+  .copyright {
+    display: flex;
+    flex-flow: nowrap column;
+    gap: 36px;
+
+    .copyInfo {
+      display: flex;
+      flex-flow: nowrap row;
+      gap: 36px;
+      color: var(--contents--content-tertiary);
+
+      font-size: var(--paragraph---small);
+      font-weight: 400;
+      line-height: 160%;
+
+      p:first-child {
+        flex-shrink: 0;
+      }
+      p:nth-child(2) {
+        width: 100%;
+        max-width: 716px;
+      }
+    }
+
+    .term {
+      display: flex;
+      flex-flow: nowrap row;
+      gap: 31px;
+      color: var(--contents--content-tertiary);
+
+      font-size: var(--paragraph---small);
+      font-weight: 400;
+      line-height: 160%;
+    }
+  }
+}
+
+@media (768px <= width < 1280px) {
+  footer {
+    padding: 56px 32px 56px 32px;
+
+    .footerNav {
+      width: 100%;
+      max-width: 700px;
+    }
+    .snsDownload {
+      flex-flow: wrap row;
+      justify-content: space-between;
+      .download {
+        flex-basis: 100%;
+      }
+    }
+  }
+}
+@media (width >= 1280px) {
+  footer {
+    padding: 64px 64px 64px 64px;
+
+    .footerNav {
+      max-width: 700px;
+    }
+    .snsDownload {
+      flex-flow: nowrap row;
+      justify-content: space-between;
+    }
+    .copyright {
+      flex-flow: nowrap row;
+      justify-content: space-between;
+      .copyInfo {
+        p:nth-child(2) {
+          width: 100%;
+          max-width: 427px;
+        }
+      }
+    }
+  }
+}
+
 /* download 부분 컴포넌트 스타일링 */
 .section_download {
   background-color: #f5f5f5;
@@ -162,25 +476,25 @@
     padding: 56px 32px;
     display: flex;
     flex-flow: nowrap column;
+  }
 
-    h2 {
-      font-size: 1.75rem;
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  .download_component {
+    height: 198px;
+    padding: var(--spacing--medium);
+    display: flex;
+    gap: 36px;
+
+    figcaption {
+      flex-grow: 0;
     }
 
-    .download_component {
-      height: 198px;
-      padding: var(--spacing--medium);
-      display: flex;
-      gap: 36px;
-
+    .download_app_link {
       figcaption {
-        flex-grow: 0;
-      }
-
-      .download_app_link {
-        figcaption {
-          flex: 0 0 auto;
-        }
+        flex: 0 0 auto;
       }
     }
   }
