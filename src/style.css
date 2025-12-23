@@ -544,7 +544,7 @@ footer {
     flex-flow: nowrap row;
     justify-content: space-between;
 
-    font-weight: 600;
+    font-weight: 500;
     line-height: 150%;
   }
   /* 네비게이션 섹션 제목 및 내용 */
@@ -581,6 +581,7 @@ footer {
     display: flex;
     flex-flow: nowrap row;
     gap: 60px;
+    align-items: center;
 
     /* 언어 */
     .language {
@@ -590,7 +591,7 @@ footer {
         line-height: 24px;
 
         span {
-          font-weight: 700;
+          font-weight: 600;
         }
 
         img {
@@ -608,7 +609,12 @@ footer {
         line-height: 24px;
 
         span {
-          font-weight: 700;
+          font-weight: 600;
+        }
+
+        img {
+          width: 24px;
+          height: 24px;
         }
       }
     }
@@ -619,10 +625,14 @@ footer {
     flex-flow: nowrap row;
     gap: 16px;
     align-items: center;
-
-    img {
+    /* 스토어 다운로드 이미지 사이즈 조정 */
+    a:nth-child(1) img {
       width: 120px;
       height: 40px;
+    }
+    a:nth-child(2) img {
+      width: 114px;
+      height: 38px;
     }
   }
   /* copyright 컨테이너*/
@@ -665,7 +675,7 @@ footer {
 }
 /* 푸터 태블릿 사이즈 */
 @media (768px <= width < 1280px) {
-  footer {
+  .footer--inner {
     padding: 56px 32px 56px 32px;
   }
   /* 내비게이션 최대 너비 제한 */
@@ -685,18 +695,20 @@ footer {
 }
 /* 푸터 PC 사이즈 */
 @media (width >= 1280px) {
-  footer {
-    padding: 64px 64px 64px 64px;
-  }
   /* 최대 너비 제한 */
   .footer--inner {
-    max-width: 1180px;
+    max-width: 1280px;
+    padding: 64px 64px 64px 64px;
     margin: auto;
 
     /* SNS & 언어 & 다운로드 레이아웃 변경 */
     .snsDownload {
       flex-flow: nowrap row;
-      justify-content: space-between;
+      justify-content: flex-start;
+      gap: 121px;
+    }
+    .download {
+      margin-left: auto;
     }
     /* copyright & 약관 일렬 정렬 */
     .copyright {
