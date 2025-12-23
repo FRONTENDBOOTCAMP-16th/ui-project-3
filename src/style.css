@@ -724,8 +724,9 @@ footer {
   margin: auto;
   padding: 40px 24px;
 
-  h2 {
+  .download_info {
     font-size: 21px;
+    font-weight: 700;
     line-height: 1.4;
     white-space: nowrap;
   }
@@ -733,11 +734,10 @@ footer {
   .download_component {
     display: flex;
     flex-flow: nowrap row;
-    gap: 10px;
+    gap: 36px;
     align-items: center;
-    min-width: 0;
-    height: 136px;
-    padding: 15px;
+    height: auto;
+    padding: 16px;
     background: white;
 
     svg {
@@ -763,50 +763,43 @@ footer {
 
 /* download 부분 반응형 웹 레이아웃 */
 
-@media (width>= 768px) {
+@media (width >= 768px) {
   .app_download_box {
-    display: flex;
-    flex-flow: nowrap column;
     padding: 56px 32px;
   }
 
-  h2 {
-    font-size: 1.75rem;
+  .download_info {
+    font-size: 1.7769rem;
   }
 
   .download_component {
     display: flex;
     gap: 36px;
-    height: 198px;
-    padding: var(--spacing--medium);
+    padding: 32px;
+  }
 
-    figcaption {
-      flex-grow: 0;
-    }
-
-    .download_app_link {
-      figcaption {
-        flex: 0 0 auto;
-      }
-    }
+  .download_component,
+  .download_app_link,
+  figcaption {
+    flex: 0 0 auto;
   }
 }
-
-@media (width>= 1180px) {
+@media (width >= 1180px) {
   .app_download_box {
+    padding: 64px;
     display: flex;
     flex-flow: wrap row;
     height: auto;
 
-    h2 {
+    .download_info {
       width: 100%;
-      font-size: 2.375rem;
+      font-size: 2.3686rem;
     }
 
     .download_component {
       display: flex;
       flex-grow: 1;
-      height: 192px;
+
       padding: var(--spacing--large);
     }
   }
@@ -829,7 +822,8 @@ footer {
     gap: 12px;
     margin-right: auto;
   }
-  h3 {
+  .about_company_title,
+  .about_news_title {
     font-weight: 600;
   }
 
