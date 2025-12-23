@@ -1,22 +1,21 @@
 @import url(./theme.css);
 
 .nav_box_detail {
+  width: 100%;
+  padding: 12px 64px;
   /* max-width: 1280px;
   margin-inline: auto; */
   background: var(--black);
-  width: 100%;
-  padding: 12px 64px;
 }
 
 .main_inner {
-  text-align: left;
   display: block;
   max-width: 1280px;
   padding: 64px 64px 128px 64px;
+  text-align: left;
 }
 
 .header_inner {
-  margin-inline: auto;
   position: relative;
   display: flex;
   flex-flow: nowrap row;
@@ -26,6 +25,7 @@
   width: 100%;
   max-width: 1280px;
   block-size: 64px;
+  margin-inline: auto;
   background: var(--black);
 
   .lang-box {
@@ -241,10 +241,10 @@
   align-items: start;
   justify-content: left; */
   width: 100%;
+  margin-inline: auto;
   background: url(./Image.png) no-repeat;
   background-position: center;
   background-size: cover;
-  margin-inline: auto;
 
   .main_wrapper {
     width: 100%;
@@ -288,9 +288,9 @@
     justify-content: center;
 
     .main_inner {
-      max-width: 1280px;
-      width: 1280px;
       display: block;
+      width: 1280px;
+      max-width: 1280px;
     }
 
     .main_wrapper {
@@ -676,11 +676,6 @@ footer {
   .footer--inner {
     padding: 56px 32px 56px 32px;
   }
-  /* 내비게이션 최대 너비 제한 */
-  .footerNav {
-    width: 100%;
-    max-width: 600px;
-  }
   /* SNS & 언어 & 다운로드 레이아웃 변경 */
   .footer--inner .snsDownload {
     flex-flow: wrap row;
@@ -696,14 +691,14 @@ footer {
   /* 최대 너비 제한 */
   .footer--inner {
     max-width: 1280px;
-    padding: 64px 64px 64px 64px;
     margin: auto;
+    padding: 64px 64px 64px 64px;
 
     /* SNS & 언어 & 다운로드 레이아웃 변경 */
     .snsDownload {
       flex-flow: nowrap row;
-      justify-content: flex-start;
       gap: 121px;
+      justify-content: flex-start;
     }
     .download {
       margin-left: auto;
@@ -895,7 +890,7 @@ footer {
   color: var(--contents--content-primary);
 
   .apply__title {
-    font-size: var(--heading---x-x-l);
+    font-size: var(--heading---x-l);
   }
   .apply__subtitle {
     margin-block: 2.25rem;
@@ -923,6 +918,12 @@ footer {
     border-bottom: 1px solid var(--contents--content-primary);
     color: var(--contents--content-primary);
     text-decoration: none;
+  }
+
+  @media (width >= 768px) and (width < 1280px) {
+    .apply__title {
+      font-size: var(--heading---x-x-l);
+    }
   }
 }
 .apply__form {
@@ -990,6 +991,7 @@ footer {
   .apply__footer-button {
     margin-inline-end: 2.25rem;
     padding: 1rem 1.5rem;
+    border: none;
     border: none;
     background: var(--black);
     color: var(--white);
