@@ -229,6 +229,7 @@
   }
 }
 
+/* 기본 스타일 해제 */
 a {
   color: inherit;
   text-decoration: none;
@@ -241,14 +242,21 @@ ul {
   list-style: none;
 }
 
+/* 배경색 적용 */
 footer {
+  background: var(--primary);
+}
+
+/* 푸터 공통 스타일 지정 */
+.footer--inner {
   display: flex;
   flex-flow: nowrap column;
   gap: 64px;
   padding: 40px 24px 40px 24px;
-  background: var(--primary);
+
   color: var(--secondary);
 
+  /* 고객 지원 영역 지정 */
   .customerCenter {
     display: flex;
     flex-flow: nowrap column;
@@ -264,6 +272,7 @@ footer {
     }
   }
 
+  /* 네비게이션 전체 레이아웃 */
   .footerNav {
     display: flex;
     flex-flow: nowrap row;
@@ -271,155 +280,168 @@ footer {
 
     font-weight: 600;
     line-height: 150%;
-
-    .navSection {
-      .navSection__heading {
-        margin: 0;
-        margin-block-end: 20px;
-        font-size: var(--label---large);
-      }
-      .navSection__item {
-        margin-block-end: 16px;
-        font-size: var(--label---medium);
-      }
+  }
+  /* 네비게이션 섹션 제목 및 내용 */
+  .navSection {
+    .navSection__heading {
+      margin: 0;
+      margin-block-end: 20px;
+      font-size: var(--label---large);
+    }
+    .navSection__item {
+      margin-block-end: 16px;
+      font-size: var(--label---medium);
     }
   }
 
+  /* SNS & 다운로드 영역 전체 */
   .snsDownload {
     display: flex;
     flex-flow: nowrap column;
     gap: 36px;
-
-    .sns {
-      display: flex;
-      flex-flow: nowrap row;
-      gap: 94px;
-      .sns__item {
-        width: 16px;
-        height: 16px;
-      }
+  }
+  /* SNS */
+  .sns {
+    display: flex;
+    flex-flow: nowrap row;
+    gap: 94px;
+    .sns__item {
+      width: 16px;
+      height: 16px;
     }
-    .langLocation {
-      display: flex;
-      flex-flow: nowrap row;
-      gap: 60px;
+  }
+  /* 언어 및 위치 공통 레이아웃 */
+  .langLocation {
+    display: flex;
+    flex-flow: nowrap row;
+    gap: 60px;
 
-      .language {
-        a {
-          display: flex;
-          gap: 4px;
-          line-height: 24px;
-
-          span {
-            transform: translateY(2px);
-          }
-
-          img {
-            width: 24px;
-            height: 24px;
-          }
-        }
-      }
-
-      .location {
-        a {
-          display: flex;
-          flex-flow: nowrap row;
-          gap: 4px;
-          line-height: 24px;
-
-          span {
-            transform: translateY(2px);
-          }
-        }
-      }
-    }
-    .download {
-      display: flex;
-      flex-flow: nowrap row;
-      gap: 16px;
+    /* 언어 */
+    .language {
       a {
-        width: 135px;
-        height: 40px;
+        display: flex;
+        gap: 4px;
+        line-height: 24px;
+
+        span {
+          font-wight:700;
+        }
+
+        img {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+    /* 위치 */
+    .location {
+      a {
+        display: flex;
+        flex-flow: nowrap row;
+        gap: 4px;
+        line-height: 24px;
+
+        span {
+          font-wight:700;
+        }
       }
     }
   }
+  /* 구글 및 앱스토어 다운로드 링크 */
+  .download {
+    display: flex;
+    flex-flow: nowrap row;
+    align-items: center;
+    gap: 16px;
 
+    img {
+      width: 120px;
+      height: 40px;
+    }
+  }
+  /* copyright 컨테이너*/
   .copyright {
     display: flex;
     flex-flow: nowrap column;
     gap: 36px;
+  }
+  /* 저작권 및 회사 정보 */
+  .copyInfo {
+    display: flex;
+    flex-flow: nowrap row;
+    gap: 36px;
+    color: var(--contents--content-tertiary);
+    align-items: center;
 
-    .copyInfo {
-      display: flex;
-      flex-flow: nowrap row;
-      gap: 36px;
-      color: var(--contents--content-tertiary);
+    font-size: var(--paragraph---small);
+    font-weight: 400;
+    line-height: 160%;
 
-      font-size: var(--paragraph---small);
-      font-weight: 400;
-      line-height: 160%;
-
-      p:first-child {
-        flex-shrink: 0;
-      }
-      p:nth-child(2) {
-        width: 100%;
-        max-width: 716px;
-      }
+    p:first-child {
+      flex-shrink: 0;
     }
-
-    .term {
-      display: flex;
-      flex-flow: nowrap row;
-      gap: 31px;
-      color: var(--contents--content-tertiary);
-
-      font-size: var(--paragraph---small);
-      font-weight: 400;
-      line-height: 160%;
+    p:nth-child(2) {
+      width: 100%;
+      max-width: 412px;
     }
   }
-}
+  /* 약관 */
+  .term {
+    display: flex;
+    flex-flow: nowrap row;
+    gap: 31px;
+    color: var(--contents--content-tertiary);
 
+    font-size: var(--paragraph---small);
+    font-weight: 400;
+    line-height: 160%;
+  }
+}
+/* 푸터 태블릿 사이즈 */
 @media (768px <= width < 1280px) {
   footer {
     padding: 56px 32px 56px 32px;
+  }
+  /* 내비게이션 최대 너비 제한 */
+  .footerNav {
+    width: 100%;
+    max-width: 600px;
+  }
+  /* SNS & 언어 & 다운로드 레이아웃 변경 */
+  .footer--inner .snsDownload {
+    flex-flow: wrap row;
+    justify-content: space-between;
 
-    .footerNav {
-      width: 100%;
-      max-width: 700px;
-    }
-    .snsDownload {
-      flex-flow: wrap row;
-      justify-content: space-between;
-      .download {
-        flex-basis: 100%;
-      }
+    .download {
+      flex-basis: 100%;
     }
   }
 }
+/* 푸터 PC 사이즈 */
 @media (width >= 1280px) {
   footer {
     padding: 64px 64px 64px 64px;
+  }
+  /* 최대 너비 제한 */
+  .footer--inner {
+    margin: auto;
+    max-width: 1180px;
 
-    .footerNav {
-      max-width: 700px;
-    }
+    /* SNS & 언어 & 다운로드 레이아웃 변경 */
     .snsDownload {
       flex-flow: nowrap row;
       justify-content: space-between;
     }
+    /* copyright & 약관 일렬 정렬 */
     .copyright {
       flex-flow: nowrap row;
       justify-content: space-between;
-      .copyInfo {
-        p:nth-child(2) {
-          width: 100%;
-          max-width: 427px;
-        }
-      }
+      align-items: center;
     }
+  }
+  /* 내비게이션 최대 너비 제한 */
+  .footerNav {
+    max-width: 700px;
   }
 }
 
