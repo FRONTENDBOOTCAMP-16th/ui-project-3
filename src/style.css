@@ -109,6 +109,400 @@
   --spacing--large: 2.5rem;
 }
 
+
+header {
+  padding-inline: 64px;
+  background: var(--black);
+}
+
+.header_inner {
+  max-width: 1280px;
+  margin-inline: auto;
+}
+
+.main_inner {
+  max-width: 1280px;
+  margin-inline: auto;
+}
+
+.nav_box_detail {
+  position: relative;
+  display: flex;
+  flex-flow: nowrap row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1280px;
+  block-size: 64px;
+  background: var(--black);
+
+  /* [모바일] 언어 박스 숨김 */
+  .lang-box {
+    display: none;
+  }
+
+  /* [모바일] 네비 메뉴 기본 설정 */
+  .nav_menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .sign_button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 80px;
+      height: 40px;
+      border: 1px solid;
+      border-radius: 20px;
+      background: var(--white);
+      color: var(--black);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .toggle_chk {
+      display: none;
+    }
+
+    .hamburger_btn {
+      position: relative;
+      margin-left: 10px;
+      color: white;
+      font-size: 30px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .menu_list {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      z-index: 100;
+      display: none; /* 기본 숨김 */
+      flex-direction: column;
+      width: 160px;
+      margin: 0;
+      padding: 0;
+      border-radius: 8px;
+      background: #333;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      color: white;
+      overflow: hidden;
+    }
+
+    .menu_list a {
+      display: block;
+      column-gap: 4px;
+      border-bottom: 1px solid #444;
+      color: var(--white);
+      font-size: 14px;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .menu_list a:hover {
+      background-color: #444;
+    }
+
+    .menu_list a:last-child {
+      border-bottom: none;
+    }
+
+    /* 모바일에서 햄버거 클릭 시 메뉴 보이기 */
+    .toggle_chk:checked ~ .menu_list {
+      display: flex;
+    }
+  }
+
+  /* =========================================
+     PC 화면 (1280px 이상)
+     ========================================= */
+  @media (min-width: 1280px) {
+    /* 1. 언어 박스 (KO-KR) 보이기 및 설정 */
+    .lang-box {
+      position: relative;
+      display: flex;
+      flex-flow: nowrap row;
+      align-items: center;
+
+      /* ★ 중요: 가입하기 버튼 왼쪽으로 배치 */
+      order: -1;
+      margin-right: 20px; /* 버튼과 간격 */
+      color: var(--white);
+
+      .lang_chk {
+        display: none;
+      }
+
+      .lang_btn {
+        display: flex;
+        gap: 6px;
+        align-items: center;
+        font-size: 14px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+
+      /* 드롭다운 리스트 */
+      .lang_list {
+        position: absolute;
+        top: 30px;
+        left: 50%;
+        z-index: 200;
+        display: none;
+        width: 120px;
+        padding: 8px 0;
+        border: 1px solid #444;
+        border-radius: 8px;
+        background: #222;
+        list-style: none;
+        transform: translateX(-50%);
+      }
+
+      .lang_list li a {
+        display: block;
+        padding: 10px 15px;
+        color: #ccc;
+        font-size: 13px;
+        text-align: center;
+        text-decoration: none;
+      }
+
+      .lang_list li a:hover {
+        background: #333;
+        color: white;
+      }
+
+      .lang_chk:checked ~ .lang_list {
+        display: block;
+      }
+    }
+
+    /* 2. 네비 메뉴 PC 설정 (정렬 핵심 부분) */
+    .nav_menu {
+      flex: 1;
+      align-items: center;
+
+      /* ★ 중요: 양쪽 끝 정렬(space-between)을 끄고 왼쪽 정렬로 변경 */
+      justify-content: flex-start;
+      margin-left: 60px;
+
+      .hamburger_btn,
+      .toggle_chk {
+        display: none;
+      }
+
+      /* 메뉴 리스트 가로 배치 */
+      .menu_list {
+        position: static;
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+
+        /* 순서: 제일 왼쪽 */
+        order: -2;
+
+        width: auto;
+        height: auto;
+        margin: 0;
+
+        /* ★ 핵심: 오른쪽 여백을 다 밀어서 나머지 요소(언어, 버튼)를 오른쪽 끝으로 보냄 */
+        margin-right: auto;
+        padding: 0;
+        background: transparent;
+        box-shadow: none;
+      }
+
+      .menu_list a {
+
+        /* [추가됨] 화살표 아이콘 정렬을 위한 Flex 설정 */
+        display: flex;
+        align-items: center;
+        padding: 0;
+        border: none;
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      /* ==================================================
+         ★ 추가된 부분: 기업 정보(첫번째) & 기사지원(마지막) 화살표 아이콘
+         ================================================== */
+      .menu_list a:first-child::after,
+      .menu_list a:last-child::after {
+        content: '';
+        display: block;
+        width: 16px;
+        height: 16px;
+        margin-left: 4px; /* 글자와 아이콘 사이 간격 */
+        /* SVG 코드를 활용하여 흰색 화살표 생성 */
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") no-repeat center;
+        background-size: contain;
+      }
+
+      .menu_list a:hover {
+        background-color: transparent;
+        color: #888;
+      }
+
+      /* 호버시 화살표 색상도 흐려지게 (선택사항) */
+      .menu_list a:hover::after {
+        opacity: 0.7;
+      }
+
+      /* 불필요한 체크박스 로직 무력화 */
+      .toggle_chk:checked ~ .menu_list {
+        display: flex;
+      }
+    }
+  }
+}
+
+main {
+  background: url(./Image.png) no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.main_box_detail {
+  display: flex;
+  flex-flow: wrap column;
+  align-items: start;
+  justify-content: center;
+  width: 100%;
+  height: 256px;
+  padding: 64px;
+
+  .main_wrapper {
+    width: 100%;
+
+    h2 {
+      font-size: var(--heading---x-l);
+      font-weight: 700;
+      line-height: 140%;
+    }
+
+    p {
+      margin-top: 28px;
+      margin-block: 28px;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 150%;
+    }
+
+    .main_link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 150px;
+      height: 56px;
+      padding-inline: 24px;
+      padding-block: 16px;
+      background: var(--black);
+
+      color: var(--white);
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 150%;
+      text-decoration: none;
+    }
+  }
+  /* 태블릿 */
+  @media (min-width: 768px) {
+    display: flex;
+    flex-flow: nowrap row;
+    align-items: start;
+    justify-content: center;
+    height: 359px;
+
+    .main_wrapper {
+      display: flex;
+      align-items: center;
+
+      h2 {
+        font-size: var(--heading---x-x-l);
+      }
+    }
+  }
+  /* 데스크탑 */
+
+  @media (min-width: 1280px) {
+    .nav_box_detail {
+      max-width: 1280px;
+      svg {
+        margin-right: 25px;
+      }
+    }
+
+    .main_wrapper {
+      h2 {
+        font-size: var(--heading-----x-x-x-l);
+        font-weight: 700;
+        line-height: 140%;
+      }
+
+      .main_link {
+        font-size: 16px;
+
+        font-weight: 600;
+        line-height: 150%;
+      }
+    }
+
+    .nav_box_detail .nav_menu {
+      flex: 1;
+      align-items: center;
+      justify-content: space-between;
+      margin-left: 60px;
+    }
+
+    .nav_box_detail .nav_menu .hamburger_btn,
+    .nav_box_detail .nav_menu .toggle_chk {
+      display: none;
+    }
+
+    .nav_box_detail .nav_menu .menu_list {
+      position: static;
+      display: flex;
+
+      flex-direction: row;
+      gap: 40px;
+
+      order: -1;
+
+      width: auto;
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .nav_box_detail .nav_menu .toggle_chk:checked ~ .menu_list {
+      position: static;
+      flex-direction: row;
+      width: auto;
+      padding: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .nav_box_detail .nav_menu .menu_list a {
+      padding: 0;
+      border: none;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    /* 호버 효과 */
+    .nav_box_detail .nav_menu .menu_list a:hover {
+      background-color: transparent;
+      color: #888;
+    }
+  }
+}
+
+
 .qna-box__container {
   background: var(--white);
 
@@ -324,7 +718,7 @@ footer {
         line-height: 24px;
 
         span {
-          font-wight:700;
+          font-weight:700;
         }
 
         img {
@@ -342,7 +736,7 @@ footer {
         line-height: 24px;
 
         span {
-          font-wight:700;
+          font-weight:700;
         }
       }
     }
@@ -351,8 +745,8 @@ footer {
   .download {
     display: flex;
     flex-flow: nowrap row;
-    align-items: center;
     gap: 16px;
+    align-items: center;
 
     img {
       width: 120px;
@@ -370,8 +764,8 @@ footer {
     display: flex;
     flex-flow: nowrap row;
     gap: 36px;
-    color: var(--contents--content-tertiary);
     align-items: center;
+    color: var(--contents--content-tertiary);
 
     font-size: var(--paragraph---small);
     font-weight: 400;
@@ -424,8 +818,8 @@ footer {
   }
   /* 최대 너비 제한 */
   .footer--inner {
-    margin: auto;
     max-width: 1180px;
+    margin: auto;
 
     /* SNS & 언어 & 다운로드 레이아웃 변경 */
     .snsDownload {
@@ -435,8 +829,8 @@ footer {
     /* copyright & 약관 일렬 정렬 */
     .copyright {
       flex-flow: nowrap row;
-      justify-content: space-between;
       align-items: center;
+      justify-content: space-between;
     }
   }
   /* 내비게이션 최대 너비 제한 */
