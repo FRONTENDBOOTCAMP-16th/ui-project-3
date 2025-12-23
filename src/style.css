@@ -131,6 +131,7 @@ header {
   max-width: 1280px;
   margin-inline: auto;
 }
+
 .nav_box_detail {
   max-width: 1280px;
   display: flex;
@@ -326,6 +327,25 @@ header {
         border: none;
         font-size: 16px;
         font-weight: 700;
+
+        /* [추가됨] 화살표 아이콘 정렬을 위한 Flex 설정 */
+        display: flex;
+        align-items: center;
+      }
+
+      /* ==================================================
+         ★ 추가된 부분: 기업 정보(첫번째) & 기사지원(마지막) 화살표 아이콘
+         ================================================== */
+      .menu_list a:first-child::after,
+      .menu_list a:last-child::after {
+        content: '';
+        display: block;
+        width: 16px;
+        height: 16px;
+        margin-left: 4px; /* 글자와 아이콘 사이 간격 */
+        /* SVG 코드를 활용하여 흰색 화살표 생성 */
+        background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") no-repeat center;
+        background-size: contain;
       }
 
       .menu_list a:hover {
@@ -333,10 +353,14 @@ header {
         color: #888;
       }
 
+      /* 호버시 화살표 색상도 흐려지게 (선택사항) */
+      .menu_list a:hover::after {
+        opacity: 0.7;
+      }
+
       /* 불필요한 체크박스 로직 무력화 */
       .toggle_chk:checked ~ .menu_list {
         display: flex;
-        /* 나머지 스타일은 위에서 이미 static으로 잡혀있음 */
       }
     }
   }
@@ -409,6 +433,7 @@ main {
     }
   }
   /* 데스크탑 */
+
   @media (min-width: 1280px) {
     .nav_box_detail {
       max-width: 1280px;
