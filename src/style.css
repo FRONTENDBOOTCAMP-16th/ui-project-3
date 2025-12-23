@@ -1,20 +1,22 @@
 @import url(./theme.css);
 
-header {
-  padding-inline: 64px;
+.nav_box_detail {
+  /* max-width: 1280px;
+  margin-inline: auto; */
   background: var(--black);
+  width: 100%;
+  padding: 12px 64px;
+}
+
+.main_inner {
+  text-align: left;
+  display: block;
+  max-width: 1280px;
+  padding: 64px 64px 128px 64px;
 }
 
 .header_inner {
-  max-width: 1280px;
   margin-inline: auto;
-}
-
-.main_box_detail {
-  margin-inline: auto;
-}
-
-.nav_box_detail {
   position: relative;
   display: flex;
   flex-flow: nowrap row;
@@ -234,18 +236,15 @@ header {
 }
 
 .main_box_detail {
+  /* display: flex;
+  flex-flow: wrap column;
+  align-items: start;
+  justify-content: left; */
+  width: 100%;
   background: url(./Image.png) no-repeat;
   background-position: center;
   background-size: cover;
-}
-.main_box_detail {
-  display: flex;
-  flex-flow: wrap column;
-  align-items: start;
-  justify-content: center;
-  width: 100%;
-  height: 256px;
-  padding: 64px;
+  margin-inline: auto;
 
   .main_wrapper {
     width: 100%;
@@ -287,7 +286,12 @@ header {
     flex-flow: nowrap row;
     align-items: start;
     justify-content: center;
-    height: 359px;
+
+    .main_inner {
+      max-width: 1280px;
+      width: 1280px;
+      display: block;
+    }
 
     .main_wrapper {
       display: flex;
