@@ -1,3 +1,8 @@
+
+*{
+  font-family: 'Pretendard Variable';
+}
+
 :root {
   --black: rgba(0, 0, 0, 1);
   --white: rgba(255, 255, 255, 1);
@@ -100,6 +105,8 @@
   --below---high: 0px 16px 48px rgba(0, 0, 0, 0.3);
   --below---medium: 0px 8px 36px rgba(0, 0, 0, 0.2);
   --below---low: 0px 4px 24px rgba(0, 0, 0, 0.1);
+  --spacing--medium: 2rem;
+  --spacing--large: 2.5rem;
 }
 
 .qna-box__container {
@@ -317,7 +324,7 @@ footer {
         line-height: 24px;
 
         span {
-          transform: translateY(2px);
+          font-wight:700;
         }
 
         img {
@@ -335,7 +342,7 @@ footer {
         line-height: 24px;
 
         span {
-          transform: translateY(2px);
+          font-wight:700;
         }
       }
     }
@@ -435,5 +442,321 @@ footer {
   /* 내비게이션 최대 너비 제한 */
   .footerNav {
     max-width: 700px;
+  }
+}
+
+/* download 부분 컴포넌트 스타일링 */
+.section_download {
+  background-color: #f5f5f5;
+}
+
+.app_download_box {
+  display: flex;
+  flex-flow: nowrap column;
+  gap: var(--spacing--medium);
+  max-width: 1280px;
+  margin: auto;
+  padding: 40px 24px;
+
+  h2 {
+    font-size: 21px;
+    line-height: 1.4;
+    white-space: nowrap;
+  }
+
+  .download_component {
+    display: flex;
+    flex-flow: nowrap row;
+    gap: 10px;
+    align-items: center;
+    min-width: 0;
+    height: 136px;
+    padding: 15px;
+    background: white;
+
+    svg {
+      flex-shrink: 0;
+      order: 1;
+    }
+
+    figcaption {
+      flex-shrink: 1;
+      order: 2;
+      min-width: 0;
+      font-size: var(--paragraph---large);
+      white-space: nowrap;
+    }
+
+    .download_app_link {
+      flex-shrink: 0;
+      order: 3;
+      margin-left: auto;
+    }
+  }
+}
+
+/* download 부분 반응형 웹 레이아웃 */
+
+@media (width>= 768px) {
+  .app_download_box {
+    display: flex;
+    flex-flow: nowrap column;
+    padding: 56px 32px;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  .download_component {
+    display: flex;
+    gap: 36px;
+    height: 198px;
+    padding: var(--spacing--medium);
+
+    figcaption {
+      flex-grow: 0;
+    }
+
+    .download_app_link {
+      figcaption {
+        flex: 0 0 auto;
+      }
+    }
+  }
+}
+
+@media (width>= 1180px) {
+  .app_download_box {
+    display: flex;
+    flex-flow: wrap row;
+    height: auto;
+
+    h2 {
+      width: 100%;
+      font-size: 2.375rem;
+    }
+
+    .download_component {
+      display: flex;
+      flex-grow: 1;
+      height: 192px;
+      padding: var(--spacing--large);
+    }
+  }
+}
+
+/* about 부분 컴포넌트 스타일링 */
+.app_about_box {
+  display: flex;
+  flex-flow: nowrap column;
+  gap: 36px;
+  max-width: 1280px;
+  margin: auto;
+  padding: 40px 24px;
+  background-color: #ffffff;
+
+  .about_company,
+  .about_news {
+    display: flex;
+    flex-flow: nowrap column;
+    gap: 12px;
+    margin-right: auto;
+  }
+  h3 {
+    font-weight: 600;
+  }
+
+  .about_details {
+    color: inherit;
+    text-decoration: none;
+    text-decoration: underline var(--black);
+    text-underline-offset: 8px;
+  }
+}
+
+/* about 부분 반응형 웹 레이아웃 */
+
+@media (width >= 768px) {
+  .app_about_box {
+    display: flex;
+    flex-flow: nowrap row;
+    column-gap: 36px;
+    padding: 56px 32px;
+  }
+}
+
+@media (width >= 1180px) {
+  .app_about_box {
+    display: flex;
+    flex-flow: nowrap row;
+    column-gap: 36px;
+    padding: 64px;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0); /* 예전 브라우저 대응 */
+  clip-path: inset(50%); /* 최신 브라우저 대응 */
+}
+.apply__wrapper {
+  background: var(--white);
+}
+.apply {
+  display: flex;
+  flex-direction: column;
+  max-width: 1280px;
+  margin: auto;
+  padding: 2.5rem 1.5rem;
+  color: var(--contents--content-primary);
+
+  .apply__title {
+    font-size: var(--heading---x-x-l);
+  }
+  .apply__subtitle {
+    margin-block: 2.25rem;
+    font-size: var(--label---large);
+  }
+  .apply__link {
+    font-size: var(--label---medium);
+  }
+
+  .apply__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .apply__policy-text {
+    margin-block: 2.25rem;
+    font-size: var(--paragraph---small);
+    line-height: 1.5;
+  }
+  .apply__link,
+  .apply__footer-link {
+    display: inline-block;
+    padding: 0.25rem;
+    border-bottom: 1px solid var(--contents--content-primary);
+    color: var(--contents--content-primary);
+    text-decoration: none;
+  }
+}
+.apply__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .apply__error-message {
+    display: none;
+    color: var(--negative);
+    font-size: var(--paragraph---small);
+  }
+
+  /* 비밀번호가 입력 중인데(placeholder가 숨겨짐) 형식이 틀렸다면(invalid) */
+  .apply__input[type='password']:not(:placeholder-shown):invalid + .apply__error-message {
+    display: block;
+  }
+
+  .apply__input {
+    height: 3.125rem;
+    padding-inline: 0.75rem;
+    border: 1px solid var(--border----border-transparent);
+    background: var(--tertiary);
+    color: var(--contents--content-primary);
+    font-size: var(--label---medium);
+
+    &[type='email']:valid {
+      border: 2px solid var(--positive);
+      background: var(--positive-transparent);
+    }
+
+    &[type='password']:user-invalid,
+    &[type='email']:user-invalid {
+      border: 2px solid var(--negative);
+      background: var(--negative-tranparent);
+    }
+
+    &::placeholder {
+      color: var(--contents--content-secondary);
+    }
+  }
+
+  .apply__form-name-group {
+    display: flex;
+    gap: 1rem;
+
+    .apply__input-first-name,
+    .apply__input-last-name {
+      flex: 1 1 0;
+      min-width: 0;
+    }
+  }
+  .apply__select:valid {
+    color: var(--contents--content-primary);
+    font-weight: 700;
+  }
+}
+.apply__footer {
+  display: flex;
+  font-size: var(--label---medium);
+
+  .apply__footer-button {
+    margin-inline-end: 2.25rem;
+    padding: 1rem 1.5rem;
+    background: var(--black);
+    color: var(--white);
+    font-size: var(--label---medium);
+
+    &:focus-visible {
+      outline: 2px solid var(--blue--300);
+      outline-offset: 2px;
+    }
+  }
+
+  .apply__footer-login {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    .apply__footer-text {
+      color: var(--contents--content-tertiary);
+      font-size: var(--paragraph---small);
+    }
+  }
+}
+@media (768px< width <= 1279px) {
+  .apply {
+    padding: 2rem 3.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .apply {
+    flex-direction: row;
+    gap: 17.75rem;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem;
+
+    .apply__title {
+      flex: 1 1 0;
+      font-size: var(--heading-----x-x-x-l);
+    }
+    .apply__form-wrapper {
+      --above---high: 0px -16px 48px rgba(0, 0, 0, 0.3);
+      --above---medium: 0px -8px 36px rgba(0, 0, 0, 0.2);
+      --above---low: 0px -4px 24px rgba(0, 0, 0, 0.1);
+      --below---high: 0px 16px 48px rgba(0, 0, 0, 0.3);
+      --below---medium: 0px 8px 36px rgba(0, 0, 0, 0.2);
+      --below---low: 0px 4px 24px rgba(0, 0, 0, 0.1);
+      flex: 1;
+    }
   }
 }
