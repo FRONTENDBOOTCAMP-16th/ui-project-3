@@ -1,5 +1,4 @@
-
-*{
+* {
   font-family: 'Pretendard Variable';
 }
 
@@ -109,7 +108,6 @@
   --spacing--large: 2.5rem;
 }
 
-
 header {
   padding-inline: 64px;
   background: var(--black);
@@ -120,7 +118,7 @@ header {
   margin-inline: auto;
 }
 
-.main_inner {
+.main_box_detail {
   max-width: 1280px;
   margin-inline: auto;
 }
@@ -137,12 +135,10 @@ header {
   block-size: 64px;
   background: var(--black);
 
-  /* [모바일] 언어 박스 숨김 */
   .lang-box {
     display: none;
   }
 
-  /* [모바일] 네비 메뉴 기본 설정 */
   .nav_menu {
     display: flex;
     align-items: center;
@@ -210,24 +206,18 @@ header {
       border-bottom: none;
     }
 
-    /* 모바일에서 햄버거 클릭 시 메뉴 보이기 */
     .toggle_chk:checked ~ .menu_list {
       display: flex;
     }
   }
 
-  /* =========================================
-     PC 화면 (1280px 이상)
-     ========================================= */
   @media (min-width: 1280px) {
-    /* 1. 언어 박스 (KO-KR) 보이기 및 설정 */
     .lang-box {
       position: relative;
       display: flex;
       flex-flow: nowrap row;
       align-items: center;
 
-      /* ★ 중요: 가입하기 버튼 왼쪽으로 배치 */
       order: -1;
       margin-right: 20px; /* 버튼과 간격 */
       color: var(--white);
@@ -245,7 +235,6 @@ header {
         cursor: pointer;
       }
 
-      /* 드롭다운 리스트 */
       .lang_list {
         position: absolute;
         top: 30px;
@@ -280,12 +269,10 @@ header {
       }
     }
 
-    /* 2. 네비 메뉴 PC 설정 (정렬 핵심 부분) */
     .nav_menu {
       flex: 1;
       align-items: center;
 
-      /* ★ 중요: 양쪽 끝 정렬(space-between)을 끄고 왼쪽 정렬로 변경 */
       justify-content: flex-start;
       margin-left: 60px;
 
@@ -308,16 +295,15 @@ header {
         height: auto;
         margin: 0;
 
-        /* ★ 핵심: 오른쪽 여백을 다 밀어서 나머지 요소(언어, 버튼)를 오른쪽 끝으로 보냄 */
         margin-right: auto;
+
+        order: -2;
         padding: 0;
         background: transparent;
         box-shadow: none;
       }
 
       .menu_list a {
-
-        /* [추가됨] 화살표 아이콘 정렬을 위한 Flex 설정 */
         display: flex;
         align-items: center;
         padding: 0;
@@ -326,9 +312,6 @@ header {
         font-weight: 700;
       }
 
-      /* ==================================================
-         ★ 추가된 부분: 기업 정보(첫번째) & 기사지원(마지막) 화살표 아이콘
-         ================================================== */
       .menu_list a:first-child::after,
       .menu_list a:last-child::after {
         content: '';
@@ -359,13 +342,12 @@ header {
   }
 }
 
-main {
+.main_box_detail {
   background: url(./Image.png) no-repeat;
   background-position: center;
   background-size: cover;
 }
-
-.main_box_detail {
+넵 .main_box_detail {
   display: flex;
   flex-flow: wrap column;
   align-items: start;
@@ -501,7 +483,6 @@ main {
     }
   }
 }
-
 
 .qna-box__container {
   background: var(--white);
@@ -718,7 +699,7 @@ footer {
         line-height: 24px;
 
         span {
-          font-weight:700;
+          font-weight: 700;
         }
 
         img {
@@ -736,7 +717,7 @@ footer {
         line-height: 24px;
 
         span {
-          font-weight:700;
+          font-weight: 700;
         }
       }
     }
