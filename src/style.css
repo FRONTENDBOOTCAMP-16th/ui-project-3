@@ -127,7 +127,7 @@ header {
   margin-inline: auto;
 }
 
-.main_inner {
+.main_box_detail {
   max-width: 1280px;
   margin-inline: auto;
 }
@@ -144,12 +144,10 @@ header {
   block-size: 64px;
   box-sizing: border-box;
 
-  /* [모바일] 언어 박스 숨김 */
   .lang-box {
     display: none;
   }
 
-  /* [모바일] 네비 메뉴 기본 설정 */
   .nav_menu {
     display: flex;
     justify-content: center;
@@ -217,17 +215,12 @@ header {
       border-bottom: none;
     }
 
-    /* 모바일에서 햄버거 클릭 시 메뉴 보이기 */
     .toggle_chk:checked ~ .menu_list {
       display: flex;
     }
   }
 
-  /* =========================================
-     PC 화면 (1280px 이상)
-     ========================================= */
   @media (min-width: 1280px) {
-    /* 1. 언어 박스 (KO-KR) 보이기 및 설정 */
     .lang-box {
       color: var(--white);
       display: flex;
@@ -235,9 +228,8 @@ header {
       align-items: center;
       position: relative;
 
-      /* ★ 중요: 가입하기 버튼 왼쪽으로 배치 */
       order: -1;
-      margin-right: 20px; /* 버튼과 간격 */
+      margin-right: 20px;
 
       .lang_chk {
         display: none;
@@ -252,7 +244,6 @@ header {
         font-size: 14px;
       }
 
-      /* 드롭다운 리스트 */
       .lang_list {
         display: none;
         position: absolute;
@@ -287,12 +278,10 @@ header {
       }
     }
 
-    /* 2. 네비 메뉴 PC 설정 (정렬 핵심 부분) */
     .nav_menu {
       flex: 1;
       margin-left: 60px;
 
-      /* ★ 중요: 양쪽 끝 정렬(space-between)을 끄고 왼쪽 정렬로 변경 */
       justify-content: flex-start;
       align-items: center;
 
@@ -315,10 +304,8 @@ header {
         padding: 0;
         margin: 0;
 
-        /* ★ 핵심: 오른쪽 여백을 다 밀어서 나머지 요소(언어, 버튼)를 오른쪽 끝으로 보냄 */
         margin-right: auto;
 
-        /* 순서: 제일 왼쪽 */
         order: -2;
       }
 
@@ -328,14 +315,10 @@ header {
         font-size: 16px;
         font-weight: 700;
 
-        /* [추가됨] 화살표 아이콘 정렬을 위한 Flex 설정 */
         display: flex;
         align-items: center;
       }
 
-      /* ==================================================
-         ★ 추가된 부분: 기업 정보(첫번째) & 기사지원(마지막) 화살표 아이콘
-         ================================================== */
       .menu_list a:first-child::after,
       .menu_list a:last-child::after {
         content: '';
@@ -372,7 +355,7 @@ main {
   background-position: center;
 }
 
-.main_box_detail {
+.main_inner {
   width: 100%;
   height: 256px;
   padding: 64px;
