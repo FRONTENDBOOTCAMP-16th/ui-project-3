@@ -1,20 +1,20 @@
 @import url(./theme.css);
 
-header {
-  padding-inline: 64px;
+.nav_box_detail {
+  width: 100%;
+  width: 100%;
+  padding-block: 12px;
   background: var(--black);
 }
 
-.header_inner {
+.main_inner {
+  display: block;
   max-width: 1280px;
   margin-inline: auto;
+  padding: 40px 24px;
 }
 
-.main_box_detail {
-  margin-inline: auto;
-}
-
-.nav_box_detail {
+.header_inner {
   position: relative;
   display: flex;
   flex-flow: nowrap row;
@@ -22,10 +22,16 @@ header {
   justify-content: space-between;
   box-sizing: border-box;
   width: 100%;
-  max-width: 1280px;
-  block-size: 64px;
+  max-width: 1408px;
+  block-size: 40px;
+  margin-inline: auto;
+  padding-inline: 24px;
   background: var(--black);
 
+  a > svg{
+    display: block;
+  }
+  
   .lang-box {
     display: none;
   }
@@ -100,6 +106,11 @@ header {
     .toggle_chk:checked ~ .menu_list {
       display: flex;
     }
+  }
+
+  @media (width >= 1280px) {
+    block-size: 64px;
+    padding-inline: 64px;
   }
 
   @media (min-width: 1280px) {
@@ -234,18 +245,11 @@ header {
 }
 
 .main_box_detail {
+  width: 100%;
+  margin-inline: auto;
   background: url(./Image.png) no-repeat;
   background-position: center;
   background-size: cover;
-}
-.main_box_detail {
-  display: flex;
-  flex-flow: wrap column;
-  align-items: start;
-  justify-content: center;
-  width: 100%;
-  height: 256px;
-  padding: 64px;
 
   .main_wrapper {
     width: 100%;
@@ -282,12 +286,12 @@ header {
     }
   }
   /* 태블릿 */
-  @media (min-width: 768px) {
-    display: flex;
-    flex-flow: nowrap row;
-    align-items: start;
-    justify-content: center;
-    height: 359px;
+  @media (min-width: 768px) and (max-width:1280px) {
+
+    .main_inner {
+      display: block;
+      padding: 56px 32px 127px 32px;
+    }
 
     .main_wrapper {
       display: flex;
@@ -306,6 +310,10 @@ header {
       svg {
         margin-right: 25px;
       }
+    }
+
+    .main_inner {
+      padding: 64px 64px 128px 64px;
     }
 
     .main_wrapper {
@@ -495,22 +503,16 @@ header {
   }
 }
 
-/* 기본 스타일 해제 */
-a {
-  color: inherit;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
 /* 배경색 적용 */
 footer {
   background: var(--primary);
+}
+
+/* 기본 스타일 해제 */
+.footer--inner a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 /* 푸터 공통 스타일 지정 */
@@ -529,7 +531,7 @@ footer {
     gap: 28px;
 
     font-size: var(--label---medium);
-    font-weight: 600;
+    font-weight: 500;
     line-height: 150%;
 
     .footerLogo {
@@ -544,7 +546,7 @@ footer {
     flex-flow: nowrap row;
     justify-content: space-between;
 
-    font-weight: 600;
+    font-weight: 500;
     line-height: 150%;
   }
   /* 네비게이션 섹션 제목 및 내용 */
@@ -581,6 +583,7 @@ footer {
     display: flex;
     flex-flow: nowrap row;
     gap: 60px;
+    align-items: center;
 
     /* 언어 */
     .language {
@@ -590,7 +593,7 @@ footer {
         line-height: 24px;
 
         span {
-          font-weight: 700;
+          font-weight: 600;
         }
 
         img {
@@ -608,7 +611,12 @@ footer {
         line-height: 24px;
 
         span {
-          font-weight: 700;
+          font-weight: 600;
+        }
+
+        img {
+          width: 24px;
+          height: 24px;
         }
       }
     }
@@ -619,10 +627,14 @@ footer {
     flex-flow: nowrap row;
     gap: 16px;
     align-items: center;
-
-    img {
+    /* 스토어 다운로드 이미지 사이즈 조정 */
+    a:nth-child(1) img {
       width: 120px;
       height: 40px;
+    }
+    a:nth-child(2) img {
+      width: 114px;
+      height: 38px;
     }
   }
   /* copyright 컨테이너*/
@@ -665,13 +677,8 @@ footer {
 }
 /* 푸터 태블릿 사이즈 */
 @media (768px <= width < 1280px) {
-  footer {
+  .footer--inner {
     padding: 56px 32px 56px 32px;
-  }
-  /* 내비게이션 최대 너비 제한 */
-  .footerNav {
-    width: 100%;
-    max-width: 600px;
   }
   /* SNS & 언어 & 다운로드 레이아웃 변경 */
   .footer--inner .snsDownload {
@@ -685,18 +692,20 @@ footer {
 }
 /* 푸터 PC 사이즈 */
 @media (width >= 1280px) {
-  footer {
-    padding: 64px 64px 64px 64px;
-  }
   /* 최대 너비 제한 */
   .footer--inner {
-    max-width: 1180px;
+    max-width: 1280px;
     margin: auto;
+    padding: 64px 64px 64px 64px;
 
     /* SNS & 언어 & 다운로드 레이아웃 변경 */
     .snsDownload {
       flex-flow: nowrap row;
-      justify-content: space-between;
+      gap: 121px;
+      justify-content: flex-start;
+    }
+    .download {
+      margin-left: auto;
     }
     /* copyright & 약관 일렬 정렬 */
     .copyright {
@@ -712,105 +721,81 @@ footer {
 }
 
 /* download 부분 컴포넌트 스타일링 */
-.section_download {
-  background-color: #f5f5f5;
-}
+/* 다운로드 박스 */
+.section_download{
+  display: block;
+  background: var(--tertiary);
 
-.app_download_box {
-  display: flex;
-  flex-flow: nowrap column;
-  gap: var(--spacing--medium);
-  max-width: 1280px;
-  margin: auto;
-  padding: 40px 24px;
-
-  h2 {
-    font-size: 21px;
-    line-height: 1.4;
-    white-space: nowrap;
+  .app_download_box{
+    max-width: 1280px;
+    margin-inline: auto;
+    padding: 40px 24px;
   }
 
-  .download_component {
-    display: flex;
-    flex-flow: nowrap row;
-    gap: 10px;
-    align-items: center;
-    min-width: 0;
-    height: 136px;
-    padding: 15px;
-    background: white;
-
-    svg {
-      flex-shrink: 0;
-      order: 1;
-    }
-
-    figcaption {
-      flex-shrink: 1;
-      order: 2;
-      min-width: 0;
-      font-size: var(--paragraph---large);
-      white-space: nowrap;
-    }
-
-    .download_app_link {
-      flex-shrink: 0;
-      order: 3;
-      margin-left: auto;
-    }
+  .app_download__heading{
+    margin-block-end: 36px;
+    font-size: var(--heading---large);
+    line-height: 140%;
   }
-}
 
-/* download 부분 반응형 웹 레이아웃 */
-
-@media (width>= 768px) {
-  .app_download_box {
+  .app_download_btn__wrapper{
     display: flex;
     flex-flow: nowrap column;
-    padding: 56px 32px;
-  }
-
-  h2 {
-    font-size: 1.75rem;
-  }
-
-  .download_component {
-    display: flex;
     gap: 36px;
-    height: 198px;
-    padding: var(--spacing--medium);
-
-    figcaption {
-      flex-grow: 0;
-    }
-
-    .download_app_link {
-      figcaption {
-        flex: 0 0 auto;
-      }
-    }
   }
-}
 
-@media (width>= 1180px) {
-  .app_download_box {
+  .app_download_btn__item{
     display: flex;
-    flex-flow: wrap row;
-    height: auto;
+    column-gap: 36px;
+    align-items: center;
+    width: 100%;
+    padding: 16px;
+    background: var(--secondary);
+    font-weight: 600;
+    text-decoration: none;
+  }
 
-    h2 {
-      width: 100%;
-      font-size: 2.375rem;
+  .app_download__text{
+    color: var(--contents--content-primary);
+    font-size: var(--label---large);
+  }
+
+  .app_download__arr{
+    margin-left: auto;
+  }
+
+  /* 태블릿 */
+  @media (width >= 768px) and (width < 1280px) {
+    .app_download_box{
+      padding: 56px 32px;
+    }
+    .app_download_btn__item{
+      padding: 32px;
+    }
+    .app_download__heading{
+      font-size: var(--heading---x-l);
+    }
+  }
+
+  @media(width >= 1280px) {
+    .app_download_box{
+      padding: 64px;
     }
 
-    .download_component {
-      display: flex;
-      flex-grow: 1;
-      height: 192px;
-      padding: var(--spacing--large);
+    .app_download_btn__wrapper{
+      flex-flow: nowrap row;
+    }
+    .app_download_btn__item{
+      padding: 44px;
+    }
+    .app_download__heading{
+      font-size: var(--heading---x-x-l);
     }
   }
 }
+
+
+
 
 /* about 부분 컴포넌트 스타일링 */
 .app_about_box {
@@ -829,7 +814,8 @@ footer {
     gap: 12px;
     margin-right: auto;
   }
-  h3 {
+  .about_company_title,
+  .about_news_title {
     font-weight: 600;
   }
 
@@ -885,7 +871,7 @@ footer {
   color: var(--contents--content-primary);
 
   .apply__title {
-    font-size: var(--heading---x-x-l);
+    font-size: var(--heading---x-l);
   }
   .apply__subtitle {
     margin-block: 2.25rem;
@@ -913,6 +899,12 @@ footer {
     border-bottom: 1px solid var(--contents--content-primary);
     color: var(--contents--content-primary);
     text-decoration: none;
+  }
+
+  @media (width >= 768px) and (width < 1280px) {
+    .apply__title {
+      font-size: var(--heading---x-x-l);
+    }
   }
 }
 .apply__form {
@@ -969,6 +961,9 @@ footer {
     color: var(--contents--content-primary);
     font-weight: 700;
   }
+  .apply__select {
+    appearance: none;
+  }
 }
 .apply__footer {
   display: flex;
@@ -977,6 +972,8 @@ footer {
   .apply__footer-button {
     margin-inline-end: 2.25rem;
     padding: 1rem 1.5rem;
+    border: none;
+    border: none;
     background: var(--black);
     color: var(--white);
     font-size: var(--label---medium);
@@ -997,9 +994,9 @@ footer {
     }
   }
 }
-@media (768px< width <= 1279px) {
+@media (768px<= width < 1280px) {
   .apply {
-    padding: 2rem 3.5rem;
+    padding: 3.5rem 2rem;
   }
 }
 
@@ -1008,11 +1005,9 @@ footer {
     flex-direction: row;
     gap: 17.75rem;
     align-items: center;
-    justify-content: space-between;
     padding: 4rem;
 
     .apply__title {
-      flex: 1 1 0;
       font-size: var(--heading-----x-x-x-l);
     }
     .apply__form-wrapper {
