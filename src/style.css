@@ -5,14 +5,14 @@
   margin-inline: auto; */
   background: var(--black);
   width: 100%;
-  padding: 12px 64px;
+  padding-block: 12px;
 }
 
 .main_inner {
   text-align: left;
   display: block;
   max-width: 1280px;
-  padding: 64px 64px 128px 64px;
+  padding: 40px 24px;
 }
 
 .header_inner {
@@ -27,6 +27,7 @@
   max-width: 1280px;
   block-size: 64px;
   background: var(--black);
+  padding-inline: 24px;
 
   .lang-box {
     display: none;
@@ -291,6 +292,7 @@
       max-width: 1280px;
       width: 1280px;
       display: block;
+      padding: 56px 32px 127px 32px;
     }
 
     .main_wrapper {
@@ -310,6 +312,10 @@
       svg {
         margin-right: 25px;
       }
+    }
+
+    .main_inner {
+      padding: 64px 64px 128px 64px;
     }
 
     .main_wrapper {
