@@ -969,6 +969,9 @@ footer {
     color: var(--contents--content-primary);
     font-weight: 700;
   }
+  .apply__select {
+    appearance: none;
+  }
 }
 .apply__footer {
   display: flex;
@@ -997,9 +1000,9 @@ footer {
     }
   }
 }
-@media (768px< width <= 1279px) {
+@media (768px<= width < 1280px) {
   .apply {
-    padding: 2rem 3.5rem;
+    padding: 3.5rem 2rem;
   }
 }
 
@@ -1008,11 +1011,9 @@ footer {
     flex-direction: row;
     gap: 17.75rem;
     align-items: center;
-    justify-content: space-between;
     padding: 4rem;
 
     .apply__title {
-      flex: 1 1 0;
       font-size: var(--heading-----x-x-x-l);
     }
     .apply__form-wrapper {
