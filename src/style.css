@@ -758,7 +758,7 @@ footer {
 /* download 부분 반응형 웹 레이아웃 */
 
 @media (width >= 768px) {
-  .section_download {
+  .download_box {
     padding: 56px 32px;
 
     .download_info {
@@ -766,12 +766,12 @@ footer {
     }
 
     .download_component {
-      padding: 32px;
+      height: 168px;
     }
   }
 }
 @media (width >= 1180px) {
-  .section_download {
+  .download_box {
     padding: 64px;
 
     .download_info {
@@ -791,25 +791,29 @@ footer {
   }
   .download_component {
     flex-grow: 1;
+    padding: 44px;
+    height: 192px;
   }
 }
 
 /* about 부분 컴포넌트 스타일링 */
 .app_about_box {
-  display: flex;
-  flex-flow: nowrap column;
-  gap: 36px;
+  background-color: #ffffff;
   max-width: 1280px;
   margin: auto;
   padding: 40px 24px;
-  background-color: #ffffff;
 
+  .about_wrapper {
+    display: flex;
+    flex-flow: nowrap column;
+    row-gap: 36px;
+  }
   .about_company,
   .about_news {
     display: flex;
     flex-flow: nowrap column;
     gap: 12px;
-    margin-right: auto;
+    flex: 1;
   }
   .about_company_title,
   .about_news_title {
@@ -826,27 +830,34 @@ footer {
     text-underline-offset: 8px;
   }
 }
-
 /* about 부분 반응형 웹 레이아웃 */
 
 @media (width >= 768px) {
   .app_about_box {
-    display: flex;
-    flex-flow: nowrap row;
-    column-gap: 36px;
     padding: 56px 32px;
+
+    .about_wrapper {
+      flex-flow: nowrap row;
+      column-gap: 36px;
+      height: 176px;
+    }
+    .about_company {
+      margin-bottom: 0;
+    }
   }
 }
 
 @media (width >= 1180px) {
   .app_about_box {
-    display: flex;
-    flex-flow: nowrap row;
-    column-gap: 36px;
     padding: 64px;
+
+    .about_wrapper {
+      flex-flow: nowrap row;
+      height: 150px;
+      column-gap: 36px;
+    }
   }
 }
-
 .sr-only {
   position: absolute;
   width: 1px;
